@@ -6,12 +6,16 @@ public class Line {
     private List<Cell> cells;
     private int index;
 
-    public Line(int size, int index) {
-        this.cells = new ArrayList<>(size);
+    public Line(int index) {
+        this.cells = new ArrayList<>();
         this.index = index;
     }
 
-    public void setCell(int index, Cell cell) {
-        this.cells.set(index, cell);
+    public void addCell(Cell cell) {
+        this.cells.add(cell);
+    }
+
+    public Cell getCell(int index) {
+        return this.cells.get(index);
     }
 }

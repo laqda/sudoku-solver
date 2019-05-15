@@ -31,3 +31,5 @@
   <----------------------------------->
     grid.size
 ```
+
+If a cell must be empty, we put its value to 0.
