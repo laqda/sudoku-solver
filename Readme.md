@@ -33,3 +33,7 @@
 ```
 
 If a cell must be empty, we put its value to 0.
+
+## Supported formats
+
+We currently only support 9 * 9 and 16 * 16.
