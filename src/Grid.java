@@ -18,7 +18,7 @@ public class Grid {
 
     private List<Line> initLines() {
         List<Line> lines = new ArrayList<>(this.size);
-        for (int i = 0; i < this.size; i++){
+        for (int i = 0; i < this.size; i++) {
             Line line = new Line(this.size, i);
             lines.add(line);
         }
@@ -54,5 +54,4 @@ public class Grid {
     private int squareLength() {
         return (int) Math.sqrt(this.size);
     }
-
 }

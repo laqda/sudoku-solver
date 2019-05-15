@@ -18,5 +18,4 @@ public class Square {
         int y = j % this.length;
         this.cells.set(y * this.length + x, cell);
     }
-
 }
