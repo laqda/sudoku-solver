@@ -37,3 +37,49 @@ If a cell must be empty, we put its value to 0.
 ## Supported formats
 
 We currently only support 9 * 9 and 16 * 16.
+
+## Threads used
+
+```
+         MAIN THREAD                SOLVER THREAD              TIMER THREAD
+      |
+      |
+      |   start                      start
+      ◼------------------------> ◼------------------------> ◼
+PRINT |                          |                          |
+ WAIT |  check status            |                          |
+      ◼ ---------->         WAIT |                          | WAIT KNOWN TIME
+PRINT |                          |            send signal   |
+ WAIT |  check status            ◼ <------------------------◼
+      ◼ ---------->              |                          |
+PRINT |                       DO |                          |
+ WAIT |  check status       WAIT |                          | WAIT KNOWN TIME
+      ◼ ---------->              |                          |
+PRINT |                          |            send signal   |
+ WAIT |  check status            ◼ <------------------------◼
+      ◼ ---------->              |                          |
+PRINT |                       DO |                          |
+ WAIT |  check status       WAIT |                          | WAIT KNOWN TIME
+      ◼ ---------->              |                          |
+PRINT |                          |            send signal   |
+ WAIT |  check status            ◼ <------------------------◼
+      ◼ ---------->              |                          |
+PRINT |                       DO |                          |
+ WAIT |  check status       WAIT |                          | WAIT KNOWN TIME
+      ◼ ---------->              |                          |
+PRINT |                          |            send signal   |
+ WAIT |  check status            ◼ <------------------------◼
+      ◼ ---------->              |                          |
+PRINT |                       DO |                          |
+ WAIT |  check status            |   interrupt              |
+      ◼ ---------->              ◼------------------------> ◼
+PRINT |                          |
+ WAIT |  check status  INTERRUPT |
+      ◼ ---------->              |
+PRINT |                          ◼
+ WAIT |  check status
+      ◼ ---------->
+      |  solving thread interrupted
+      |  stop printing
+      |
+```
