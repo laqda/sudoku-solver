@@ -3,7 +3,7 @@ package grid;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DefaultGrid implements Grid {
+public class DefaultGrid extends Grid {
 
     private int size;
     private List<Line> rows;
