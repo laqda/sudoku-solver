@@ -17,4 +17,13 @@ public class Square {
         this.cells.add(cell);
     }
 
+    public boolean contains(int value) {
+        for (Cell cell : cells) {
+            if (cell.getValue() == value) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

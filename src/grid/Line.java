@@ -21,4 +21,13 @@ public class Line {
         return this.cells.get(index);
     }
 
+    public boolean contains(int value) {
+        for (Cell cell : cells) {
+            if (cell.getValue() == value) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
