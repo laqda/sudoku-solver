@@ -83,3 +83,5 @@ PRINT |                          ◼
       |  stop printing
       |
 ```
+
+> This schema represent the console mode. In the gui mode, the sudoku component observe changes in the grid. The grid push a notification when a value is set.
