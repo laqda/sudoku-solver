@@ -2,6 +2,8 @@ package grid;
 
 public class Consts {
 
+    static final int UNASSIGNED = 0;
+
     static final String GRID_9 = "╔═══╤═══╤═══╦═══╤═══╤═══╦═══╤═══╤═══╗\n" +
                                          "║ %s │ %s │ %s ║ %s │ %s │ %s ║ %s │ %s │ %s ║\n" +
                                          "╟───┼───┼───╫───┼───┼───╫───┼───┼───╢\n" +

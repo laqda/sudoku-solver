@@ -39,7 +39,7 @@ public class DefaultGrid implements Grid {
     private void initCells() {
         for (int i = 0; i < this.size; i++) {
             for (int j = 0; j < this.size; j++) {
-                Cell cell = new Cell(i, j, 0);
+                Cell cell = new Cell(i, j, Consts.UNASSIGNED);
                 this.rows.get(j).addCell(cell);
                 this.columns.get(i).addCell(cell);
                 this.getSquare(i, j).addCell(cell);
@@ -89,7 +89,7 @@ public class DefaultGrid implements Grid {
 
     private String getValueFormated(int x, int y) {
         int value = this.getValue(x, y);
-        return value != 0 ? Integer.toHexString(value).toUpperCase() : " ";
+        return value != Consts.UNASSIGNED ? Integer.toHexString(value).toUpperCase() : " ";
     }
 
     @Override
