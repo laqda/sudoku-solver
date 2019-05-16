@@ -1,5 +1,6 @@
 import grid.DefaultGrid;
 import grid.Grid;
+import gui.App;
 import solver.BacktrackingSolver;
 import solver.BacktrackingTimedSolver;
 import solver.Solver;
@@ -10,18 +11,28 @@ import java.util.concurrent.TimeUnit;
 public class Main {
 
     public static void main(String[] args) {
-        try {
-//            testBacktrakingSolver();
-            testBacktrakingTimedSolver();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        testSolversInTerminal();
+        testGUI();
     }
 
     private static Grid generateGrid() {
         Grid grid = new DefaultGrid(9);
         grid.setValue(0, 0, 2);
         return grid;
+    }
+
+    private static void testGUI() {
+        App app = new App();
+        app.setVisible(true);
+    }
+
+    private static void testSolversInTerminal() {
+        try {
+            testBacktrakingSolver();
+            testBacktrakingTimedSolver();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void testBacktrakingSolver() throws InterruptedException {

@@ -3,8 +3,9 @@ package grid;
 import consts.Consts;
 
 import java.util.List;
+import java.util.Observable;
 
-public abstract class Grid {
+public abstract class Grid extends Observable {
 
     public abstract void display();
     public abstract Square getSquare(int x, int y);
@@ -28,6 +29,8 @@ public abstract class Grid {
 
     public void setValue(int x, int y, int value) {
         this.getCell(x, y).setValue(value);
+        this.setChanged();
+        this.notifyObservers();
     }
 
     public boolean isAllowed(int x, int y, int value) {
