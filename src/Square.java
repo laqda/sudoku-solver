@@ -14,4 +14,5 @@ public class Square {
     public void addCell(Cell cell) {
         this.cells.add(cell);
     }
+
 }

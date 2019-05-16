@@ -18,4 +18,5 @@ public class Line {
     public Cell getCell(int index) {
         return this.cells.get(index);
     }
+
 }
