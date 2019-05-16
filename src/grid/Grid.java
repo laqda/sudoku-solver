@@ -1,14 +1,32 @@
 package grid;
 
+import java.util.List;
+
 public abstract class Grid {
 
     public abstract void display();
     public abstract Square getSquare(int x, int y);
-    public abstract Line getRow(int y);
-    public abstract Line getColumn(int x);
+    public abstract List<Line> getRows();
+    public abstract List<Line> getColumns();
+    public abstract List<Square> getSquares();
     public abstract int getSize();
-    public abstract int getValue(int x, int y);
-    public abstract void setValue(int x, int y, int value);
+    protected abstract Cell getCell(int x, int y);
+
+    public Line getRow(int y) {
+        return this.getRows().get(y);
+    }
+
+    public Line getColumn(int x) {
+        return this.getColumns().get(x);
+    }
+
+    public int getValue(int x, int y) {
+        return this.getCell(x, y).getValue();
+    }
+
+    public void setValue(int x, int y, int value) {
+        this.getCell(x, y).setValue(value);
+    }
 
     public boolean isAllowed(int x, int y, int value) {
         if (value == Consts.UNASSIGNED) {
@@ -18,4 +36,5 @@ public abstract class Grid {
                !this.getColumn(x).contains(value) &&
                !this.getSquare(x, y).contains(value);
     }
+
 }

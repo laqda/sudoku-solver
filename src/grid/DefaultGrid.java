@@ -55,13 +55,18 @@ public class DefaultGrid extends Grid {
     }
 
     @Override
-    public Line getRow(int y) {
-        return this.rows.get(y);
+    public List<Line> getRows() {
+        return rows;
     }
 
     @Override
-    public Line getColumn(int x) {
-        return this.columns.get(x);
+    public List<Line> getColumns() {
+        return columns;
+    }
+
+    @Override
+    public List<Square> getSquares() {
+        return squares;
     }
 
     @Override
@@ -73,18 +78,9 @@ public class DefaultGrid extends Grid {
         return (int) Math.sqrt(this.size);
     }
 
-    private Cell getCell(int x, int y) {
+    @Override
+    protected Cell getCell(int x, int y) {
         return this.rows.get(y).getCell(x);
-    }
-
-    @Override
-    public int getValue(int x, int y) {
-        return this.getCell(x, y).getValue();
-    }
-
-    @Override
-    public void setValue(int x, int y, int value) {
-        this.getCell(x, y).setValue(value);
     }
 
     private String getValueFormated(int x, int y) {
