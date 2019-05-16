@@ -1,5 +1,7 @@
 package grid;
 
+import consts.Consts;
+
 import java.util.List;
 
 public abstract class Grid {

@@ -1,5 +1,7 @@
 package grid;
 
+import consts.Consts;
+
 import java.util.ArrayList;
 import java.util.List;
 
