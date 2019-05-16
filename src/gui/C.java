@@ -9,6 +9,8 @@ class C {
     private static final int sudokuPadding = 10;
     private static final int sudokuWidth = 320;
     private static final int sudokuHeight = 320;
+    private static final Font sudokuFontFinal = new Font("Helvetica", Font.BOLD, 14);
+    private static final Font sudokuFont = new Font("Helvetica", Font.PLAIN, 14);
 
     static BasicStroke getSudokuBorderExternal() {
         return new BasicStroke(sudokuBorderExternal);
@@ -53,4 +55,13 @@ class C {
     static int getSudokuCellHeight() {
         return getSudokuInternalHeight() / 9;
     }
+
+    public static Font getSudokuFontFinal() {
+        return sudokuFontFinal;
+    }
+
+    public static Font getSudokuFont() {
+        return sudokuFont;
+    }
+
 }

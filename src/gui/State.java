@@ -47,6 +47,8 @@ public class State {
         this.grid.setValue(7, 8, 7);
         this.grid.setValue(8, 8, 9);
 
+        this.grid.setFinal();
+
         // Solve
         TimedSolver solver = new BacktrackingTimedSolver(grid);
         solver.setTimerWait(Configuration.TIMER_WAIT);

@@ -42,4 +42,18 @@ public abstract class Grid extends Observable {
                !this.getSquare(x, y).contains(value);
     }
 
+    public void setFinal() {
+        for (int i = 0; i < this.getSize(); i++) {
+            for (int j = 0; j < this.getSize(); j++) {
+                if (this.getValue(i, j) != Consts.UNASSIGNED) {
+                    this.getCell(i, j).setFinal();
+                }
+            }
+        }
+    }
+
+    public boolean isFinal(int x, int y) {
+        return this.getCell(x, y).isFinal();
+    }
+
 }

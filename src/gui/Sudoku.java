@@ -85,6 +85,11 @@ public class Sudoku extends JPanel implements Observer {
 
     private void drawCellValue(Graphics2D g2D, int x, int y) {
         int value = this.state.grid.getValue(x, y);
+        if (this.state.grid.isFinal(x, y)) {
+            g2D.setFont(C.getSudokuFontFinal());
+        } else {
+            g2D.setFont(C.getSudokuFont());
+        }
         g2D.drawString(value == 0 ? " " : String.valueOf(value),
                        C.getSudokuPadding() + C.getSudokuCellWidth() / 2 - 5 + x * C.getSudokuCellWidth(),
                        C.getSudokuPadding() + C.getSudokuCellHeight() / 2 + 5 + y * C.getSudokuCellHeight()
