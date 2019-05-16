@@ -46,7 +46,7 @@ public class Main {
 
         // Display
         while (solver.isAlive()) {
-            TimeUnit.MILLISECONDS.sleep(Configuration.TIMER_WAIT_RENDER);
+            TimeUnit.MILLISECONDS.sleep(Configuration.TIMER_WAIT);
             grid.display();
         }
     }
@@ -62,7 +62,7 @@ public class Main {
 
         // Display
         while (solver.isAlive()) {
-            TimeUnit.MILLISECONDS.sleep(Configuration.TIMER_WAIT_RENDER);
+            TimeUnit.MILLISECONDS.sleep(Configuration.TIMER_WAIT);
             grid.display();
         }
     }

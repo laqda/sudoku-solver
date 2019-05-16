@@ -20,7 +20,7 @@ public class State {
 
         // Solve
         TimedSolver solver = new BacktrackingTimedSolver(grid);
-        solver.setTimerWait(Configuration.TIMER_WAIT_RENDER);
+        solver.setTimerWait(Configuration.TIMER_WAIT);
         solver.start();
     }
 
