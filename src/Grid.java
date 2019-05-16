@@ -37,7 +37,7 @@ public class Grid {
     private void initCells() {
         for (int i = 0; i < this.size; i++) {
             for (int j = 0; j < this.size; j++) {
-                Cell cell = new Cell(i, j, null);
+                Cell cell = new Cell(i, j, 0);
                 this.rows.get(j).addCell(cell);
                 this.columns.get(i).addCell(cell);
                 this.getSquare(i, j).addCell(cell);

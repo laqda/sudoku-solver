@@ -4,10 +4,10 @@ public class Cell {
     private int x;
     private int y;
 
-    public Cell(int x, int y, Integer value) {
+    public Cell(int x, int y, int value) {
         this.x = x;
         this.y = y;
-        this.value = value == null ? 0 : value;
+        this.value = value;
     }
 
     public int getValue() {
