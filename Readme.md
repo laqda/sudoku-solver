@@ -40,6 +40,8 @@ We currently only support 9 * 9 and 16 * 16.
 
 ## Use of threads
 
+> This schema represent the console mode. In the gui mode, the sudoku component observe changes in the grid. The grid push a notification when a value is set.
+
 ```
          MAIN THREAD                SOLVER THREAD              TIMER THREAD
       |
@@ -84,4 +86,3 @@ PRINT |                          ◼
       |
 ```
 
-> This schema represent the console mode. In the gui mode, the sudoku component observe changes in the grid. The grid push a notification when a value is set.
