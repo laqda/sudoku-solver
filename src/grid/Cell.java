@@ -1,3 +1,5 @@
+package grid;
+
 public class Cell {
 
     private int value;
