@@ -38,7 +38,7 @@ If a cell must be empty, we put its value to 0.
 
 We currently only support 9 * 9 and 16 * 16.
 
-## Threads used
+## Use of threads
 
 ```
          MAIN THREAD                SOLVER THREAD              TIMER THREAD
