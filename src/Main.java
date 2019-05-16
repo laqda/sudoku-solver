@@ -1,3 +1,4 @@
+import consts.Configuration;
 import grid.DefaultGrid;
 import grid.Grid;
 import gui.App;
