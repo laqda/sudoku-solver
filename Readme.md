@@ -36,53 +36,33 @@ If a cell must be empty, we put its value to 0.
 
 ## Supported formats
 
-We currently only support 9 * 9 and 16 * 16.
+We currently only support 9 * 9 and 16 * 16 (only console mode).
 
-## Use of threads
-
-> This schema represent the console mode. In the gui mode, the sudoku component observe changes in the grid. The grid push a notification when a value is set.
+## Threads organization
 
 ```
-         MAIN THREAD                SOLVER THREAD              TIMER THREAD
-      |
-      |
-      |   start                      start
-      ◼------------------------> ◼------------------------> ◼
-PRINT |                          |                          |
- WAIT |  check status            |                          |
-      ◼ ---------->         WAIT |                          | WAIT KNOWN TIME
-PRINT |                          |            send signal   |
- WAIT |  check status            ◼ <------------------------◼
-      ◼ ---------->              |                          |
-PRINT |                       DO |                          |
- WAIT |  check status       WAIT |                          | WAIT KNOWN TIME
-      ◼ ---------->              |                          |
-PRINT |                          |            send signal   |
- WAIT |  check status            ◼ <------------------------◼
-      ◼ ---------->              |                          |
-PRINT |                       DO |                          |
- WAIT |  check status       WAIT |                          | WAIT KNOWN TIME
-      ◼ ---------->              |                          |
-PRINT |                          |            send signal   |
- WAIT |  check status            ◼ <------------------------◼
-      ◼ ---------->              |                          |
-PRINT |                       DO |                          |
- WAIT |  check status       WAIT |                          | WAIT KNOWN TIME
-      ◼ ---------->              |                          |
-PRINT |                          |            send signal   |
- WAIT |  check status            ◼ <------------------------◼
-      ◼ ---------->              |                          |
-PRINT |                       DO |                          |
- WAIT |  check status            |   interrupt              |
-      ◼ ---------->              ◼------------------------> ◼
-PRINT |                          |
- WAIT |  check status  INTERRUPT |
-      ◼ ---------->              |
-PRINT |                          ◼
- WAIT |  check status
-      ◼ ---------->
-      |  solving thread interrupted
-      |  stop printing
-      |
++-----------------+          +----------------+          +-----------------+
+|                 |          |                |          |                 |
+|                 |          |                |          |                 |
+|  MAIN THREAD    |  Create  |  GUI THREAD    |  Create  |  SOLVER THREAD  | <----+  The solver waits the
+|                 | +------> |                | +------> |                 |      |  flag in the speed
+|                 |          |                |          |                 |      |  locker to raise.
++-----------------+          +----------------+          +-----------------+      |
+|                 |          |                |          |                 |      |  The timer raises the
+| App             |          | Solver         |          | speedLocker     |      |  flag when needed.
+|                 |          | Grid           |          |                 |      |
++-----------------+          |                |          +-----------------+      |  The gui also raises
+                             +----------------+                                   |  the flag if mode step
+                                                         +-----------------+      |  by step is active.
+                                     +                   |                 |      |
+                                     |      Create       |                 |      |  The gui updates the
+                                     +-----------------> |  TIMER THREAD   |  <---+  speed value.
+                                                         |                 |
+                                                         |                 |
+                                                         +-----------------+
+                                                         |                 |
+                                                         | Speed           |
+                                                         |                 |
+                                                         +-----------------+
 ```
 
