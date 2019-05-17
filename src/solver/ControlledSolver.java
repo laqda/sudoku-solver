@@ -5,7 +5,7 @@ import grid.Grid;
 
 public abstract class ControlledSolver extends Solver {
 
-    protected SpeedLocker speedLocker;
+    private SpeedLocker speedLocker;
     private Timer timer;
     protected Grid grid;
 
