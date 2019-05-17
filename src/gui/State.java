@@ -10,6 +10,7 @@ public class State {
 
     Grid grid;
     private ControlledSolver solver;
+    private Configuration.SPEED runningSpeed = Configuration.SPEED.SLOW;
 
     public State() {
         this.grid = new DefaultGrid(9);
@@ -48,19 +49,43 @@ public class State {
         this.grid.setFinal();
 
         // Solve
-        this.solver = new BacktrackingControlledSolver(grid, Configuration.SPEED.SLOW);
+        this.solver = new BacktrackingControlledSolver(grid);
+        this.pause();
     }
 
     public void run() {
         this.solver.start();
     }
 
-    public void setSpeed(Configuration.SPEED speed) {
+    private void setSpeed(Configuration.SPEED speed) {
         this.solver.setSpeed(speed);
     }
 
+    public void handleChangeSpeed(Configuration.SPEED speed) {
+        if (this.solver.getSpeed().running()) {
+            this.setSpeed(speed);
+        }
+        this.runningSpeed = speed;
+    }
+
+    public void play() {
+        this.setSpeed(this.runningSpeed);
+    }
+
+    public void pause() {
+        this.setSpeed(Configuration.SPEED.STEP_BY_STEP);
+    }
+
+    public void next() {
+        this.solver.next();
+    }
+
+    public void complete() {
+        this.setSpeed(Configuration.SPEED.NO_LIMIT);
+    }
+
     public int getSpeed() {
-        return this.solver.getSpeed().getSpeed();
+        return this.runningSpeed.getSpeed();
     }
 
 }

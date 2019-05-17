@@ -8,7 +8,7 @@ public class Configuration {
     private static final int fast = 10;
 
     public enum SPEED {
-        SLOW(slow), MEDIUM(medium), FAST(fast), STEP_BY_STEP(DO_NOT_USE_TIMER);
+        SLOW(slow), MEDIUM(medium), FAST(fast), STEP_BY_STEP(DO_NOT_USE_TIMER), NO_LIMIT(DO_NOT_USE_TIMER);
         private int speed;
 
         SPEED(int speed) {
@@ -19,8 +19,12 @@ public class Configuration {
             return speed;
         }
 
-        public boolean shouldUseTimer() {
+        public boolean running() {
             return this.speed != DO_NOT_USE_TIMER;
+        }
+
+        public boolean shouldUseTimer() {
+            return this != STEP_BY_STEP;
         }
 
         public static SPEED getSpeed(int value) {

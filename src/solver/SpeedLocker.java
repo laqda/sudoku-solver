@@ -32,7 +32,9 @@ public class SpeedLocker {
     }
 
     public void signal() {
+        this.lock();
         this.isReadyToContinue.signal();
+        this.unlock();
     }
 
 }

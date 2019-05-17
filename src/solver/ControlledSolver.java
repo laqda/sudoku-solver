@@ -22,7 +22,7 @@ public abstract class ControlledSolver extends Solver {
     }
 
     public void next() {
-        if (this.timer.getSpeed() == Configuration.SPEED.STEP_BY_STEP) {
+        if (this.timer.getSpeed() != Configuration.SPEED.STEP_BY_STEP) {
             return;
         }
         this.speedLocker.signal();
@@ -34,6 +34,7 @@ public abstract class ControlledSolver extends Solver {
 
     public void setSpeed(Configuration.SPEED speed) {
         this.timer.setSpeed(speed);
+        System.out.println(speed);
     }
 
     @Override
