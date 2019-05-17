@@ -14,7 +14,6 @@ public abstract class ControlledSolver extends Solver {
         this.grid = grid;
         this.speedLocker = new SpeedLocker();
         this.timer = new Timer(this.speedLocker);
-        this.timer.start();
     }
 
     public ControlledSolver(Grid grid, Configuration.SPEED speed) {
@@ -35,6 +34,12 @@ public abstract class ControlledSolver extends Solver {
 
     public void setSpeed(Configuration.SPEED speed) {
         this.timer.setSpeed(speed);
+    }
+
+    @Override
+    public synchronized void start() {
+        super.start();
+        this.timer.start();
     }
 
     @Override

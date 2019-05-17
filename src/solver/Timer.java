@@ -16,15 +16,17 @@ public class Timer extends Thread {
     @Override
     public void run() {
         while (!Thread.currentThread().isInterrupted()) {
-            try {
-                TimeUnit.MILLISECONDS.sleep(this.speed.getSpeed());
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
+            if (this.speed.shouldUseTimer()) {
+                try {
+                    TimeUnit.MILLISECONDS.sleep(this.speed.getSpeed());
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
 
-            this.speedLocker.lock();
-            this.speedLocker.signal();
-            this.speedLocker.unlock();
+                this.speedLocker.lock();
+                this.speedLocker.signal();
+                this.speedLocker.unlock();
+            }
         }
     }
 
