@@ -9,8 +9,8 @@ class C {
     private static final int sudokuBorderInternal = 1;
     private static final int sudokuWidth = 320;
     private static final int sudokuHeight = 320;
-    private static final Font sudokuFontFinal = new Font("Helvetica", Font.BOLD, 14);
-    private static final Font sudokuFont = new Font("Helvetica", Font.PLAIN, 14);
+    private static final Font sudokuFontFinal = new Font("Helvetica", Font.BOLD, 16);
+    private static final Font sudokuFont = new Font("Helvetica", Font.PLAIN, 16);
     private static final int formHeight = 50;
 
     static BasicStroke getSudokuBorderExternal() {
