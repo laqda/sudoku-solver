@@ -34,7 +34,6 @@ public abstract class ControlledSolver extends Solver {
 
     public void setSpeed(Configuration.SPEED speed) {
         this.timer.setSpeed(speed);
-        System.out.println(speed);
     }
 
     @Override
