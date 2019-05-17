@@ -10,7 +10,7 @@ public class Sudoku extends JPanel implements Observer {
     private State state;
 
     public Sudoku(State state) {
-        setPreferredSize(new Dimension(C.getSudokuWidth(), C.getSudokuHeight()));
+        this.setPreferredSize(new Dimension(C.getSudokuWidth(), C.getSudokuHeight()));
         state.grid.addObserver(this);
         this.state = state;
     }
