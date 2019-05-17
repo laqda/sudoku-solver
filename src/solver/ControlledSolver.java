@@ -18,7 +18,7 @@ public abstract class ControlledSolver extends Solver {
     }
 
     public ControlledSolver(Grid grid, Configuration.SPEED speed) {
-        super(grid);
+        this(grid);
         this.timer.setSpeed(speed);
     }
 
