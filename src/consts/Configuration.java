@@ -2,8 +2,10 @@ package consts;
 
 public class Configuration {
 
+    private static final int DO_NOT_USE_TIMER = 0;
+
     public enum SPEED {
-        LOW(1000), MEDIUM(100), FAST(10), STEP_BY_STEP(0);
+        LOW(1000), MEDIUM(100), FAST(10), STEP_BY_STEP(DO_NOT_USE_TIMER);
         private int speed;
 
         private SPEED(int speed) {
@@ -15,7 +17,7 @@ public class Configuration {
         }
 
         public boolean shouldUseTimer() {
-            return this.speed != 0;
+            return this.speed != DO_NOT_USE_TIMER;
         }
     }
 
