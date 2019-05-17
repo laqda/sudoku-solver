@@ -4,12 +4,12 @@ import consts.Configuration;
 
 import java.util.concurrent.TimeUnit;
 
-public class Timer extends Thread {
+public class SpeedHandler extends Thread {
 
     private SpeedLocker speedLocker;
     private Configuration.SPEED speed = Configuration.SPEED.LOW;
 
-    public Timer(SpeedLocker locker) {
+    public SpeedHandler(SpeedLocker locker) {
         this.speedLocker = locker;
     }
 
