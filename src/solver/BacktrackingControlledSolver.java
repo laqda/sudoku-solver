@@ -3,9 +3,9 @@ package solver;
 import consts.Consts;
 import grid.Grid;
 
-public class BacktrackingTimedSolver extends TimedSolver {
+public class BacktrackingControlledSolver extends ControlledSolver {
 
-    public BacktrackingTimedSolver(Grid grid) {
+    public BacktrackingControlledSolver(Grid grid) {
         super(grid);
     }
 

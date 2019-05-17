@@ -3,9 +3,9 @@ import grid.DefaultGrid;
 import grid.Grid;
 import gui.App;
 import solver.BacktrackingSolver;
-import solver.BacktrackingTimedSolver;
+import solver.BacktrackingControlledSolver;
 import solver.Solver;
-import solver.TimedSolver;
+import solver.ControlledSolver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -56,8 +56,8 @@ public class Main {
         Grid grid = generateGrid();
 
         // Solve
-        TimedSolver solver = new BacktrackingTimedSolver(grid);
-        solver.setTimerWait(Configuration.TIMER_WAIT);
+        ControlledSolver solver = new BacktrackingControlledSolver(grid);
+        solver.setSpeed(Configuration.SPEED.FAST);
         solver.start();
 
         // Display

@@ -4,12 +4,12 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class TimeLocker {
+public class SpeedLocker {
 
     private Lock lock;
     private Condition isReadyToContinue;
 
-    public TimeLocker() {
+    public SpeedLocker() {
         this.lock = new ReentrantLock();
         this.isReadyToContinue = this.lock.newCondition();
     }
@@ -22,8 +22,13 @@ public class TimeLocker {
         this.lock.unlock();
     }
 
-    public void await() throws InterruptedException {
-        this.isReadyToContinue.await();
+    public void await() {
+        this.lock.lock();
+        try {
+            this.isReadyToContinue.await();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
     }
 
     public void signal() {

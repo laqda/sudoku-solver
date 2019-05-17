@@ -3,8 +3,8 @@ package gui;
 import consts.Configuration;
 import grid.DefaultGrid;
 import grid.Grid;
-import solver.BacktrackingTimedSolver;
-import solver.TimedSolver;
+import solver.BacktrackingControlledSolver;
+import solver.ControlledSolver;
 
 public class State {
 
@@ -50,8 +50,8 @@ public class State {
         this.grid.setFinal();
 
         // Solve
-        TimedSolver solver = new BacktrackingTimedSolver(grid);
-        solver.setTimerWait(Configuration.TIMER_WAIT);
+        ControlledSolver solver = new BacktrackingControlledSolver(grid); // TODO give possibility to give custom speedLocker
+        solver.setSpeed(Configuration.SPEED.FAST);
         solver.start();
     }
 
