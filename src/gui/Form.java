@@ -26,7 +26,7 @@ public class Form extends JPanel {
     private JSlider createSilder() {
         JSlider slider = new JSlider(
                 JSlider.HORIZONTAL,
-                0,
+                adjustSpeedToValue(Configuration.SPEED.FAST.getSpeed()),
                 adjustSpeedToValue(Configuration.SPEED.SLOW.getSpeed()),
                 adjustSpeedToValue(this.state.getSpeed())
         );
@@ -34,7 +34,6 @@ public class Form extends JPanel {
         slider.setPreferredSize(new Dimension(C.getFormWidth(), C.getFormHeight()));
 
         Hashtable<Integer, JLabel> labels = new Hashtable<>();
-        labels.put(0, new JLabel("STEP BY STEP"));
         labels.put(adjustSpeedToValue(Configuration.SPEED.SLOW.getSpeed()), new JLabel("SLOW"));
         labels.put(adjustSpeedToValue(Configuration.SPEED.MEDIUM.getSpeed()), new JLabel("MEDIUM"));
         labels.put(adjustSpeedToValue(Configuration.SPEED.FAST.getSpeed()), new JLabel("FAST"));
