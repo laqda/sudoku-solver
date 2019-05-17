@@ -17,6 +17,11 @@ public abstract class ControlledSolver extends Solver {
         this.timer.start();
     }
 
+    public ControlledSolver(Grid grid, Configuration.SPEED speed) {
+        super(grid);
+        this.timer.setSpeed(speed);
+    }
+
     public void next() {
         if (this.timer.getSpeed() == Configuration.SPEED.STEP_BY_STEP) {
             return;

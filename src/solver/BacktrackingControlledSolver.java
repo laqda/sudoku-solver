@@ -1,5 +1,6 @@
 package solver;
 
+import consts.Configuration;
 import consts.Consts;
 import grid.Grid;
 
@@ -7,6 +8,10 @@ public class BacktrackingControlledSolver extends ControlledSolver {
 
     public BacktrackingControlledSolver(Grid grid) {
         super(grid);
+    }
+
+    public BacktrackingControlledSolver(Grid grid, Configuration.SPEED speed) {
+        super(grid, speed);
     }
 
     @Override

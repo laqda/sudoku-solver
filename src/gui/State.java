@@ -50,8 +50,7 @@ public class State {
         this.grid.setFinal();
 
         // Solve
-        ControlledSolver solver = new BacktrackingControlledSolver(grid); // TODO give possibility to give custom speedLocker
-        solver.setSpeed(Configuration.SPEED.FAST);
+        ControlledSolver solver = new BacktrackingControlledSolver(grid, Configuration.SPEED.FAST);
         solver.start();
     }
 
