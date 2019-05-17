@@ -48,4 +48,8 @@ public abstract class ControlledSolver extends Solver {
         super.interrupt();
     }
 
+    public Configuration.SPEED getSpeed() {
+        return this.timer.getSpeed();
+    }
+
 }

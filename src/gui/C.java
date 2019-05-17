@@ -73,4 +73,8 @@ class C {
         return formHeight + sudokuHeight;
     }
 
+    public static int getFormHeight() {
+        return formHeight;
+    }
+
 }

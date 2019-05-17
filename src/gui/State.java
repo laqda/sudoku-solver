@@ -9,13 +9,11 @@ import solver.ControlledSolver;
 public class State {
 
     Grid grid;
+    private ControlledSolver solver;
 
     public State() {
         this.grid = new DefaultGrid(9);
-    }
 
-    public void run() {
-        // Init
         this.grid.setValue(0, 0, 5);
         this.grid.setValue(1, 0, 3);
         this.grid.setValue(4, 0, 7);
@@ -50,8 +48,19 @@ public class State {
         this.grid.setFinal();
 
         // Solve
-        ControlledSolver solver = new BacktrackingControlledSolver(grid, Configuration.SPEED.FAST);
-        solver.start();
+        this.solver = new BacktrackingControlledSolver(grid, Configuration.SPEED.SLOW);
+    }
+
+    public void run() {
+        this.solver.start();
+    }
+
+    public void setSpeed(Configuration.SPEED speed) {
+        this.solver.setSpeed(speed);
+    }
+
+    public int getSpeed() {
+        return this.solver.getSpeed().getSpeed();
     }
 
 }

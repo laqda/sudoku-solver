@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 public class Timer extends Thread {
 
     private SpeedLocker speedLocker;
-    private Configuration.SPEED speed = Configuration.SPEED.LOW;
+    private Configuration.SPEED speed = Configuration.SPEED.SLOW;
 
     public Timer(SpeedLocker locker) {
         this.speedLocker = locker;
