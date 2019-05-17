@@ -13,7 +13,7 @@ public class Form extends JPanel {
     public Form(State state) {
         this.state = state;
         this.setPreferredSize(new Dimension(C.getAppWidth(), C.getFormHeight()));
-        this.add(createSilder(), BorderLayout.CENTER);
+        this.add(createSilder());
     }
 
     private int adjustSpeedToValue(int speed) {
@@ -31,7 +31,7 @@ public class Form extends JPanel {
                 adjustSpeedToValue(this.state.getSpeed())
         );
         slider.setPaintTicks(true);
-        slider.setPreferredSize(new Dimension(C.getAppWidth(), C.getFormHeight()));
+        slider.setPreferredSize(new Dimension(C.getFormWidth(), C.getFormHeight()));
 
         Hashtable<Integer, JLabel> labels = new Hashtable<>();
         labels.put(0, new JLabel("STEP BY STEP"));

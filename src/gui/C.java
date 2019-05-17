@@ -4,9 +4,9 @@ import java.awt.*;
 
 class C {
 
+    private static final int padding = 10;
     private static final int sudokuBorderExternal = 2;
     private static final int sudokuBorderInternal = 1;
-    private static final int sudokuPadding = 10;
     private static final int sudokuWidth = 320;
     private static final int sudokuHeight = 320;
     private static final Font sudokuFontFinal = new Font("Helvetica", Font.BOLD, 14);
@@ -21,8 +21,8 @@ class C {
         return new BasicStroke(sudokuBorderInternal);
     }
 
-    static int getSudokuPadding() {
-        return sudokuPadding;
+    static int getPadding() {
+        return padding;
     }
 
     static int getSudokuWidth() {
@@ -34,11 +34,11 @@ class C {
     }
 
     static int getSudokuInternalWidth() {
-        return sudokuWidth - 2 * sudokuPadding;
+        return sudokuWidth - 2 * padding;
     }
 
     static int getSudokuInternalHeight() {
-        return sudokuHeight - 2 * sudokuPadding;
+        return sudokuHeight - 2 * padding;
     }
 
     static int getSudokuSquareWidth() {
@@ -70,7 +70,11 @@ class C {
     }
 
     public static int getAppHeight() {
-        return formHeight + sudokuHeight;
+        return formHeight + sudokuHeight + 2 * padding;
+    }
+
+    public static int getFormWidth() {
+        return getAppWidth() - 2 * padding;
     }
 
     public static int getFormHeight() {

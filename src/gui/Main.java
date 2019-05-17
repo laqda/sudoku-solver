@@ -11,6 +11,7 @@ public class Main extends JPanel {
         this.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.setPreferredSize(new Dimension(C.getAppWidth(), C.getAppHeight()));
 
         Sudoku sudoku = new Sudoku(state);
         this.add(sudoku);
