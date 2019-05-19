@@ -110,7 +110,7 @@ public class Form extends JPanel {
     private JButton createBtn(String filename) {
         JButton btn = null;
         try {
-            btn = new JButton(new ImageIcon(ImageIO.read(new File("src/re/" + filename))));
+            btn = new JButton(new ImageIcon(ImageIO.read(new File("src/gui/re/" + filename))));
             btn.setPreferredSize(new Dimension(C.getBtnWidth(), C.getBtnHeight()));
         } catch (IOException e) {
             e.printStackTrace();
