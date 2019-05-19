@@ -93,8 +93,7 @@ public class Generator {
                             if (checkGrid(grid)) {
                                 this.counter += 1;
                                 break;
-                            }
-                            else {
+                            } else {
                                 if (solveGrid(grid)) {
                                     return true;
                                 }
