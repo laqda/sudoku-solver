@@ -92,7 +92,7 @@ public class Sudoku extends JPanel implements Observer {
             g2D.setFont(C.getSudokuFont());
         }
         g2D.drawString(value == 0 ? " " : String.valueOf(value),
-                       C.getPadding() + C.getSudokuCellWidth() / 2 - 7 + x * C.getSudokuCellWidth() + x,
+                       C.getPadding() + C.getSudokuCellWidth() / 2 - 7 + x * C.getSudokuCellWidth() + x / 2, // + x / 2 to adjuste xPosition
                        C.getPadding() + C.getSudokuCellHeight() / 2 + 7 + y * C.getSudokuCellHeight()
         );
     }
