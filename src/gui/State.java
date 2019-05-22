@@ -9,6 +9,8 @@ import solver.BacktrackingSolver;
 import solver.ControlledSolver;
 import solver.Solver;
 
+import java.util.concurrent.TimeUnit;
+
 public class State {
 
     Grid grid;
@@ -17,15 +19,7 @@ public class State {
     private Configuration.SPEED runningSpeed = Configuration.SPEED.SLOW;
 
     public State() {
-        this.generator = new Generator(9);
-
-        this.grid = generator.generate();
-
-        this.grid.setFinal();
-
-        // Solve
-        this.solver = new BacktrackingControlledSolver(this.grid);
-        this.pause();
+        this.grid = new DefaultGrid(9);
     }
 
     public void run() {
@@ -65,6 +59,16 @@ public class State {
 
     private int randomInt(int min, int max) {
         return min + (int) (Math.random() * (max - min) + 1);
+    }
+
+    public void generateGrid(int attemps) {
+        this.generator = new Generator(this.grid);
+        generator.generate(attemps);
+        this.grid.setFinal();
+        // Solve
+        this.solver = new BacktrackingControlledSolver(this.grid);
+        this.pause();
+        this.run();
     }
 
 }

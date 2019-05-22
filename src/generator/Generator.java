@@ -15,13 +15,20 @@ public class Generator {
 
     public Generator(int size) {
         this.grid = new DefaultGrid(size);
-        this.isAlreadySolved = false;
     }
 
-    public Grid generate() {
+    public Generator(Grid grid) {
+        this.grid = grid;
+    }
+
+    public void generate(int attemps) {
+        this.isAlreadySolved = false;
         fillGrid();
-        cleanGrid();
-        return this.grid;
+        cleanGrid(attemps);
+    }
+
+    public Grid getGrid() {
+        return grid;
     }
 
     private boolean fillGrid() {
@@ -54,9 +61,8 @@ public class Generator {
         return numberList;
     }
 
-    private void cleanGrid() {
-        int attemps = 10;
-        while (attemps > 1) {
+    private void cleanGrid(int attemps) {
+        while (attemps > 0) {
             int x = randomInt(0, 8);
             int y = randomInt(0, 8);
             while (this.grid.getValue(x, y) == Consts.UNASSIGNED) {
