@@ -2,11 +2,10 @@ package gui;
 
 import consts.Configuration;
 import generator.Generator;
+import grid.DefaultGrid;
 import grid.Grid;
 import solver.BacktrackingControlledSolver;
 import solver.ControlledSolver;
-
-import java.util.concurrent.TimeUnit;
 
 public class State {
 
