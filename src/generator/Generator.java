@@ -55,13 +55,13 @@ public class Generator {
     }
 
     private void cleanGrid() {
-        int attemps = 10;
-        while (attemps > 1) {
-            int x = randomInt(0, 8);
-            int y = randomInt(0, 8);
+        int attemps = 1;
+        while (attemps > 0) {
+            int x = randomInt(0, this.grid.getSize() - 1);
+            int y = randomInt(0, this.grid.getSize() - 1);
             while (this.grid.getValue(x, y) == Consts.UNASSIGNED) {
-                x = randomInt(0, 8);
-                y = randomInt(0, 8);
+                x = randomInt(0, this.grid.getSize() - 1);
+                y = randomInt(0, this.grid.getSize() - 1);
             }
             int value = this.grid.getValue(x, y);
             this.grid.setValue(x, y, Consts.UNASSIGNED);

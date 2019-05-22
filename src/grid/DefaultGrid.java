@@ -87,6 +87,10 @@ public class DefaultGrid extends Grid {
 
     private String getValueFormated(int x, int y) {
         int value = this.getValue(x, y);
+        if (this.size == 16) {
+            value--;
+            return value != Consts.UNASSIGNED - 1 ? Integer.toHexString(value).toUpperCase() : " ";
+        }
         return value != Consts.UNASSIGNED ? Integer.toHexString(value).toUpperCase() : " ";
     }
 
@@ -115,7 +119,5 @@ public class DefaultGrid extends Grid {
             e.printStackTrace();
         }
     }
-
-
 
 }
