@@ -2,7 +2,7 @@ package consts;
 
 public class Consts {
 
-    public static final int UNASSIGNED = 0;
+    public static final int UNASSIGNED = -1;
     public static final String GRID_9 = "╔═══╤═══╤═══╦═══╤═══╤═══╦═══╤═══╤═══╗\n" +
                                         "║ %s │ %s │ %s ║ %s │ %s │ %s ║ %s │ %s │ %s ║\n" +
                                         "╟───┼───┼───╫───┼───┼───╫───┼───┼───╢\n" +
