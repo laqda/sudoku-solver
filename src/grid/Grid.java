@@ -52,8 +52,49 @@ public abstract class Grid extends Observable {
         }
     }
 
+    public int emptyCellsRemaining(){
+        int rs = 0;
+        for (int i = 0; i < this.getSize(); i++) {
+            for (int j = 0; j < this.getSize(); j++) {
+                if (this.getValue(i, j) == Consts.UNASSIGNED) {
+                    rs++;
+                }
+            }
+        }
+        return rs;
+    }
+
+    public int[] nextUnassignedValue(int x, int y){
+
+        for (int i = x+1; i < this.getSize(); i++) {
+                if (this.getValue(i, y) == Consts.UNASSIGNED) {
+                    return new int[]{i, y};
+                }
+            }
+
+        for (int j = 0; j < this.getSize(); j++) {
+            for (int k = 0; k < this.getSize(); k++) {
+                if (this.getValue(j, k) == Consts.UNASSIGNED) {
+                    return new int[]{j, k};
+                }
+            }
+        }
+        return new int[]{-1,-1};
+    }
+
     public boolean isFinal(int x, int y) {
         return this.getCell(x, y).isFinal();
+    }
+
+    public boolean isFilled(){
+        for (int i = 0; i < this.getSize(); i++) {
+            for (int j = 0; j < this.getSize(); j++) {
+                if (this.getValue(i, j) == Consts.UNASSIGNED) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
 }

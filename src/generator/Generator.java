@@ -84,7 +84,7 @@ public class Generator {
         return min + (int) (Math.random() * (max - min + 1));
     }
 
-    private Grid copyGrid(Grid grid) {
+    public static Grid copyGrid(Grid grid) {
         Grid copyGrid = new DefaultGrid(grid.getSize());
         for (int j = 0; j < grid.getSize(); j++) {
             for (int i = 0; i < grid.getSize(); i++) {
