@@ -99,6 +99,9 @@ public class DefaultGrid extends Grid {
         try {
             String format;
             switch (this.size) {
+                case 4:
+                    format = Consts.GRID_4;
+                    break;
                 case 9:
                     format = Consts.GRID_9;
                     break;
