@@ -36,7 +36,8 @@ If a cell must be empty, we put its value to 0.
 
 ## Supported formats
 
-We currently only support 9 * 9 and 16 * 16 (only console mode).
+We currently only support 9 * 9 in gui mode.<br/>
+Grids of size 4 * 4 and 16 * 16 are supported in console mode.
 
 ## Threads organization
 

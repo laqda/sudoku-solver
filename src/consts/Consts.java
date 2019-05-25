@@ -3,6 +3,15 @@ package consts;
 public class Consts {
 
     public static final int UNASSIGNED = -1;
+    public static final String GRID_4 = "╔═══╤═══╦═══╤═══╗\n" +
+                                        "║ %s │ %s ║ %s │ %s ║\n" +
+                                        "╟───┼───╫───┼───╢\n" +
+                                        "║ %s │ %s ║ %s │ %s ║\n" +
+                                        "╠═══╪═══╬═══╪═══╣\n" +
+                                        "║ %s │ %s ║ %s │ %s ║\n" +
+                                        "╟───┼───╫───┼───╢\n" +
+                                        "║ %s │ %s ║ %s │ %s ║\n" +
+                                        "╚═══╧═══╩═══╧═══╝";
     public static final String GRID_9 = "╔═══╤═══╤═══╦═══╤═══╤═══╦═══╤═══╤═══╗\n" +
                                         "║ %s │ %s │ %s ║ %s │ %s │ %s ║ %s │ %s │ %s ║\n" +
                                         "╟───┼───┼───╫───┼───┼───╫───┼───┼───╢\n" +
