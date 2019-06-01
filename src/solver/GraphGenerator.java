@@ -137,23 +137,7 @@ public class GraphGenerator {
         return rootNode;
     }
 
-    public static void main(String[] args) {
-
-
-        Node<Grid> visitedNode;
-        Grid rootGrid = new DefaultGrid(4);
-
-        Generator generator = new Generator(rootGrid);
-        generator.generate(1);
-        rootGrid.display();
-
-
-        Node nd = generateReducedUniverseWithConstraintVerification(rootGrid, false);
-
-
-    }
-
-    private static Grid easyTestGrid() {
+    public static Grid easyTestGrid() {
 
         Grid grid = new DefaultGrid(9);
         grid.setValue(0, 0, 2);
@@ -231,13 +215,13 @@ public class GraphGenerator {
         grid.setValue(2, 7, 2);
         grid.setValue(3, 7, 9);
         grid.setValue(4, 7, 6);
-        grid.setValue(5, 7, 1);
+        //grid.setValue(5, 7, 1);
         grid.setValue(6, 7, 8);
         grid.setValue(7, 7, 5);
         grid.setValue(8, 7, 3);
 
         grid.setValue(0, 8, 6);
-        grid.setValue(1, 8, 3);
+        //grid.setValue(1, 8, 3);
         grid.setValue(2, 8, 1);
         grid.setValue(3, 8, 2);
         grid.setValue(4, 8, 5);
