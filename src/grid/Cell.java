@@ -1,5 +1,7 @@
 package grid;
 
+import consts.Consts;
+
 public class Cell {
 
     private int value;
@@ -28,6 +30,11 @@ public class Cell {
 
     public boolean isFinal() {
         return this.finalValue;
+    }
+
+    public void reset() {
+        this.value = Consts.UNASSIGNED;
+        this.finalValue = false;
     }
 
 }

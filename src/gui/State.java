@@ -13,6 +13,7 @@ public class State {
     private ControlledSolver solver;
     private Generator generator;
     private Configuration.SPEED runningSpeed = Configuration.SPEED.SLOW;
+    private boolean shouldInitSolver;
 
     public State() {
         this.grid = new DefaultGrid(9);
@@ -34,6 +35,12 @@ public class State {
     }
 
     public void play() {
+        if (shouldInitSolver) {
+            this.solver = new BacktrackingControlledSolver(this.grid);
+            this.pause();
+            this.run();
+            this.shouldInitSolver = false;
+        }
         this.setSpeed(this.runningSpeed);
     }
 
@@ -58,13 +65,18 @@ public class State {
     }
 
     public void generateGrid(int attemps) {
+        if (this.solver != null) {
+            this.solver.interrupt();
+            try {
+                this.solver.join();
+            } catch (InterruptedException ignored) {
+            }
+        }
+        this.grid.empty();
         this.generator = new Generator(this.grid);
         generator.generate(attemps);
         this.grid.setFinal();
-        // Solve
-        this.solver = new BacktrackingControlledSolver(this.grid);
-        this.pause();
-        this.run();
+        this.shouldInitSolver = true;
     }
 
 }
