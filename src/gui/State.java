@@ -24,7 +24,9 @@ public class State {
     }
 
     private void setSpeed(Configuration.SPEED speed) {
-        this.solver.setSpeed(speed);
+        if (this.solver != null) {
+            this.solver.setSpeed(speed);
+        }
     }
 
     public void handleChangeSpeed(Configuration.SPEED speed) {
@@ -49,10 +51,14 @@ public class State {
     }
 
     public void next() {
-        this.solver.next();
+        this.pause();
+        if (this.solver != null) {
+            this.solver.next();
+        }
     }
 
     public void complete() {
+        this.play();
         this.setSpeed(Configuration.SPEED.NO_LIMIT);
     }
 
