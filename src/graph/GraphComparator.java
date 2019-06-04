@@ -1,9 +1,8 @@
-package analysis;
+package graph;
 
 import grid.Grid;
-import tree.Node;
 
-import static solver.GraphGenerator.*;
+import static graph.GraphGenerator.*;
 
 public class GraphComparator {
 

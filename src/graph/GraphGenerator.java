@@ -1,12 +1,11 @@
-package solver;
+package graph;
 
 import generator.Generator;
 import grid.DefaultGrid;
 import grid.Grid;
-import tree.Node;
+import graph.Node;
 
 import java.util.*;
-
 
 public class GraphGenerator {
 
